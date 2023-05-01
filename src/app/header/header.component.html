@@ -1,13 +1,21 @@
-<!-- <mat-toolbar color="primary">
+<mat-toolbar color="primary">
 
   <span><i class="bi bi-bag-dash-fill"></i>eComm </span>
   <span class="space-buttons"></span>
   <button *ngIf="! isLoggedIn()" mat-raised-button color="primary" routerLink="/login">Login</button> 
   <button *ngIf="isLoggedIn()" mat-raised-button color="warn" (click)="logout()">Logout</button> 
 
-</mat-toolbar> -->
+</mat-toolbar>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<mat-toolbar color="primary" *ngIf="isLoggedIn()">
+<button mat-raised-button color="primary" routerLink="/">Home</button>
+<button *ngIf="isAdmin()" mat-raised-button color="primary" routerLink="/addNewProduct">Add New Product</button>
+ 
+</mat-toolbar>
+
+
+<!-- This master UI -->
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
     <span><i class="bi bi-bag-dash-fill"></i>eComm </span>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,8 +42,8 @@
       <button *ngIf="isLoggedIn()" type="button" class="btn btn-danger" (click)="logout()" >Logout</button>
     </div>
   </div>
-</nav>
-
+</nav> -->
+<!-- MAster Ui end -->
 
 <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark bg-primary">
     <div class="container-fluid">

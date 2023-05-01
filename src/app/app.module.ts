@@ -20,6 +20,7 @@ import { RouterModule } from '@angular/router';
 import { AuthGuard } from './_auth/auth.guard';
 import { AuthInterceptor } from './_auth/auth.interceptor';
 import { UserService } from './_services/user.service';
+import { AddNewProductComponent } from './add-new-product/add-new-product.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { UserService } from './_services/user.service';
     UserComponent,
     LoginComponent,
     HeaderComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
+    AddNewProductComponent
   ],
   imports: [
     BrowserModule,
