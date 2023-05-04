@@ -21,6 +21,8 @@ import { AuthGuard } from './_auth/auth.guard';
 import { AuthInterceptor } from './_auth/auth.interceptor';
 import { UserService } from './_services/user.service';
 import { AddNewProductComponent } from './add-new-product/add-new-product.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { DragDirective } from './drag.directive';
 
 
 @NgModule({
@@ -32,7 +34,8 @@ import { AddNewProductComponent } from './add-new-product/add-new-product.compon
     LoginComponent,
     HeaderComponent,
     ForbiddenComponent,
-    AddNewProductComponent
+    AddNewProductComponent,
+    DragDirective
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,7 @@ import { AddNewProductComponent } from './add-new-product/add-new-product.compon
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatGridListModule
   ],
   providers: [
     AuthGuard,
