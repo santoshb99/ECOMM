@@ -27,9 +27,41 @@
             <td mat-cell *matCellDef="let element"> {{element.productActualPrice}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="Product Discounted Price">
+         <!-- Symbol Column -->
+         <ng-container matColumnDef="Product Discounted Price">
             <th mat-header-cell *matHeaderCellDef> Product Discounted Price </th>
             <td mat-cell *matCellDef="let element"> {{element.productDiscountedPrice}} </td>
+        </ng-container>
+
+        
+        <ng-container matColumnDef="Images">
+            <th mat-header-cell *matHeaderCellDef> Images </th>
+            <td mat-cell *matCellDef="let element"> 
+                <button mat-icon-button color="primary" (click)="showImages(element)">
+                <mat-icon>images</mat-icon>
+            </button>   
+         </td>
+        </ng-container>
+
+
+        <!-- Edit Button -->
+        <ng-container matColumnDef="Edit">
+            <th mat-header-cell *matHeaderCellDef> Edit </th>
+            <td mat-cell *matCellDef="let element"> 
+            <button mat-icon-button color="primary">
+                <mat-icon>edit</mat-icon>
+            </button>    
+            </td>
+        </ng-container>
+
+        <!-- Delete Button -->
+        <ng-container matColumnDef="Delete">
+            <th mat-header-cell *matHeaderCellDef> Delete </th>
+            <td mat-cell *matCellDef="let element"> 
+                <button mat-icon-button color="warn" (click)="deleteProduct(element.productId)">
+                <mat-icon>delete </mat-icon>
+            </button>    
+         </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

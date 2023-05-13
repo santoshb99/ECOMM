@@ -27,7 +27,7 @@ export class AddNewProductComponent implements OnInit{
     private sanitizer: DomSanitizer){}
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    // throw new Error('Method not implemented.');
   }
 
   addProduct(productForm: NgForm){
