@@ -11,7 +11,7 @@ export class CartComponent implements OnInit{
   
   cartDetails = [];
   
-  displayedColumns: string[] = ['Product Name', 'description', 'Product Actual Price', 'Product Discounted Price'];
+  displayedColumns: string[] = ['Name', 'Description', 'Price', 'Discounted Price', 'Action'];
   
 
   constructor(private productService: ProductService, private router: Router) {}
@@ -19,6 +19,18 @@ export class CartComponent implements OnInit{
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
     this.getCartDetails();
+  }
+
+  delete(cartId) {
+    console.log(cartId);
+    this.productService.deleteCartItem(cartId).subscribe(
+      (resp) => {
+        console.log(resp);
+        this.getCartDetails();
+      }, (err) => {
+        console.log(err);
+      }
+    );
   }
 
   getCartDetails(){
@@ -45,6 +57,5 @@ export class CartComponent implements OnInit{
     //   }
     // );
   }
-
 
 }
