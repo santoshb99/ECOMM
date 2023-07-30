@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class CartComponent implements OnInit{
   
-  cartDetails = [];
+  cartDetails: any[] = [];
   
   displayedColumns: string[] = ['Name', 'Description', 'Price', 'Discounted Price', 'Action'];
   
@@ -39,7 +39,7 @@ export class CartComponent implements OnInit{
         console.log(Response);
         this.cartDetails = Response;
       }, (error) => {
-        console.log(error);
+        console.log(error);``
       }
     );
   }
