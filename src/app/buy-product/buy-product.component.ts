@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injector, NgZone } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { OrderDetails } from '../_model/order-details.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../_model/product.model';
 import { ProductService } from '../_services/product.service';
+// import * as Razorpay from 'razorpay';
 
+declare var Razorpay: any;
 @Component({
   selector: 'app-buy-product',
   templateUrl: './buy-product.component.html',
@@ -20,11 +22,13 @@ export class BuyProductComponent implements OnInit{
     fullAddress: '',
     contactNumber: '',
     alternateContactNumber: '',
+    transactionId: '',
     orderProductQuantityList: []
   }
   constructor(private activatedRoute: ActivatedRoute,
     private productService: ProductService,
-    private router: Router){ }
+    private router: Router,
+    private injector: Injector){ }
 
   ngOnInit(): void {
     this.productDetails = this.activatedRoute.snapshot.data['productDetails'];
@@ -46,7 +50,14 @@ export class BuyProductComponent implements OnInit{
       (resp) => {
         console.log(resp);
         orderForm.reset();
-        this.router.navigate(["/orderConfirm"]);
+
+        const ngZone = this.injector.get(NgZone);
+        ngZone.run(
+          () => {
+            this.router.navigate(["/orderConfirm"]);
+          }
+        );
+       
       },
       (err) => {
         console.log(err);
@@ -91,4 +102,57 @@ export class BuyProductComponent implements OnInit{
     return grandTotal;
   }
 
+  createTransactionAndPlacedOrder(orderForm: NgForm){
+    let amount = this.getCalculatedGrandTotal();
+    this.productService.createTransaction(amount).subscribe(
+      (response) => {
+        console.log(response); 
+        this.openTransactionModal(response, orderForm);       
+      },
+      (error) => {
+        console.log(error);
+        
+      }
+    );
+  }
+
+  openTransactionModal(response: any, orderForm: NgForm){
+    var options = {
+      order_id: response.order_id,
+      key: response.key,
+      amount: response.amount,
+      currency: response.currency,
+      name: 'Doing INtegration Razorpay Test',
+      description: 'Payment of Online Shopping',
+      image: 'https://cdn.pixabay.com/photo/2023/07/24/01/31/plane-8145957_1280.jpg',
+      handler: (response :any) => {
+        if( response!=null && response.razorpay_payment_id != null){
+          this.processResponse(response,orderForm);
+        }else{
+          alert("Payment failed...");
+        }
+      },
+      prefill : {
+        name: 'LPY',
+        email: 'LPY@GMAIL.COM',
+        contact: '90909090'
+      },
+      notes: {
+        address: 'Online Shopping'
+      },
+      theme: {
+        color: '#F37254'
+      }
+    };
+
+    var razorPayObject = new Razorpay(options);
+    razorPayObject.open();
+  }
+
+  processResponse(resp: any, orderForm: NgForm) {
+    // console.log(resp);
+    this.orderDetails.transactionId = resp.razorpay_payment_id;
+    this.placeOrder(orderForm);
+    
+  }
 }
