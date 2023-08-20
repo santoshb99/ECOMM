@@ -19,6 +19,7 @@ export class OrderDetailsComponent implements OnInit{
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
     this.getAllOrderDetailsForAdmin(this.status);
+    // this.getAllOrderDetailsForAdmin(this.status);
   }
 
   getAllOrderDetailsForAdmin(statusParameter:string) {

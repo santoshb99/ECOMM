@@ -18,6 +18,7 @@ export class ProductService {
 
   public getAllOrderDetailsForAdmin(status: string): Observable<MyOrderDetails[]> {
     return this.httpClient.get<MyOrderDetails[]>("http://localhost:9090/getAllOrderDetails/" + status);
+    // return this.httpClient.get<MyOrderDetails[]>("http://localhost:9090/getAllOrderDetails");
   }
 
   public getMyOrders(): Observable<MyOrderDetails[]> {
