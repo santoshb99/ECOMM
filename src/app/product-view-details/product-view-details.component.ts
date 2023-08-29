@@ -10,6 +10,8 @@ import { ProductService } from '../_services/product.service';
 })
 export class ProductViewDetailsComponent implements OnInit {
 
+  showMsg: boolean = false;
+
   selectedProductIndex = 0;
 
   product: Product;
@@ -27,6 +29,7 @@ export class ProductViewDetailsComponent implements OnInit {
     this.productService.addToCart(productId).subscribe(
       (response) => {
         console.log(response);
+        this.showMsg = true;
       }, (error) => {
         console.log(error);
       }

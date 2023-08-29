@@ -1,12 +1,12 @@
 <div class="container">
 
-    <mat-button-toggle-group aria-label="Font Style">
+    <mat-button-toggle-group aria-label="Font Style" class="toggle-button">
         <mat-button-toggle value="All" (click)="getAllOrderDetailsForAdmin('All')">All</mat-button-toggle>
         <mat-button-toggle value="Placed" (click)="getAllOrderDetailsForAdmin('Placed')">Placed</mat-button-toggle>
         <mat-button-toggle value="Delivered" (click)="getAllOrderDetailsForAdmin('Delivered')">Delivered</mat-button-toggle>
       </mat-button-toggle-group>
-
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-2">
+<div class="responsive-table">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-2 responsive-table">
 
 
         <ng-container matColumnDef="Id">
@@ -45,7 +45,7 @@
         <ng-container matColumnDef="Action">
             <th mat-header-cell *matHeaderCellDef> Action </th>
             <td mat-cell *matCellDef="let element">
-                <button *ngIf="element.orderStatus == 'Placed'" mat-raised-button color="primary" (click)="markAsDelivered(element.orderId)">Mark as Delivered</button> 
+                <button class="action-button" *ngIf="element.orderStatus == 'Placed'" mat-raised-button color="primary" (click)="markAsDelivered(element.orderId)">Mark as Delivered</button> 
             </td>
         </ng-container>
 
@@ -53,4 +53,6 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+
+</div>
 </div>

@@ -1,7 +1,7 @@
-<div class="container mt-5">
+<div class="container mt-5 ">
     <div class="card p-2">
         <div class="row">
-            <div class="col-6">
+            <div class="col-6 first-row">
 
                 <form #productForm="ngForm" (ngSubmit)="addProduct(productForm)">
 
@@ -36,7 +36,7 @@
                     </div>
                 </form>
             </div>
-            <div class="col-6">
+            <div class="col-6 second-row">
                 <div>
                     <div class="dropzone"
                     appDrag
@@ -55,7 +55,7 @@
                     <input type="file" multiple value="select" style="display: none;" #selectFile (change)="onFileSelected($event)">
                 </div>
                 <div class="mt-5">
-                    <div class="row">
+                    <div class="row image-place">
                         <mat-grid-list cols="4" rowHeight="1:1">
                             <mat-grid-tile *ngFor="let file of product.productImages; let i = index;">
                                 <div style="position: relative">

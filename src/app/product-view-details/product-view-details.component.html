@@ -1,12 +1,21 @@
 <div class="container">
+    <!-- <div *ngIf="showMsg" class="container alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> This alert box could indicate a successful or positive action.
+      </div> -->
+      <div *ngIf="showMsg" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Product Added successfully!</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
     <div class="row mt-2">
-        <div class="col-6">
+        <div class="col-4">
             <div class="card image-container p-3">
                 <img [src]="product.productImages[selectedProductIndex].url" class="product-zoom-image">
             </div>
-            <div class="mt-2">
-                <mat-grid-list cols="3" gutterSize="10" rowHeight="1:1">
-                    <mat-grid-tile *ngFor="let file of product.productImages; let i = index" (click)="changeIndex(i)"
+            <div class="mt-2 sub-images">
+                <mat-grid-list cols="3" gutterSize="10" rowHeight="1:1" class="sub-images-list">
+                    <mat-grid-tile class="sub-images-tile rounded" *ngFor="let file of product.productImages; let i = index" (click)="changeIndex(i)"
                         style="border: 1px solid lightgray; cursor: pointer;">
                         <img [src]="file.url" height="100px">
                     </mat-grid-tile>
@@ -14,8 +23,8 @@
             </div>
 
         </div>
-        <div class="col-6">
-            <div class="product-information">
+        <div class="col-8">
+            <!-- <div class="product-information">
                 <div class="mt-2">
                     <h2>{{product.productName}}</h2>
                 </div>
@@ -32,7 +41,30 @@
                     &nbsp;
                     <button mat-raised-button style="width: 200px;" (click)="addToCart(product.productId)"> Add to Cart</button>
                 </div>
+            </div> -->
+
+            <!-- --------------------------- -->
+
+            <div class="second-half">
+                <div class="card-body">
+                    <h3 class="card-title">{{product.productName}}</h3>
+                    <p class="mt-3 card-text text-wrap">{{product.productDescription}}</p>
+                </div>
+                <div class="d-flex my-3 card-price-tag">
+                    <h3> ₹ {{product.productDiscountedPrice}} &nbsp; <span
+                            style="text-decoration: line-through; font-style: italic;">{{product.productActualPrice}}</span>
+                    </h3>
+                    
+                </div>
+                <div class="mt-3 card-price-tag-btn">
+                    <button class="card-tag-btn" mat-raised-button color="warn" style="width: 200px;" (click)="buyProduct(product.productId)">Buy Now</button>
+                    &nbsp;
+                    <button class="card-tag-btn" mat-raised-button style="width: 200px;" (click)="addToCart(product.productId)"> Add to Cart</button>        
+                </div>
             </div>
+
+
+            <!-- ------------------------------ -->
         </div>
     </div>
 </div>

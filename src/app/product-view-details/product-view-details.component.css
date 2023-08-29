@@ -1,13 +1,24 @@
-.product-information{
-    font-size: medium;
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-.image-container{
+.row {
+    /* border: 1px solid red; */
+}
+
+/* .product-information{
+    font-size: medium;
+} */
+
+.image-container {
     height: 300px;
     position: relative;
+    /* object-fit: scale-down; */
 }
 
-.product-zoom-image{
+.product-zoom-image {
+    /* object-fit: scale-down; */
     max-width: 90%;
     max-height: 90%;
     position: absolute;
@@ -16,4 +27,97 @@
     left: 0;
     right: 0;
     margin: auto;
+}
+
+/* ---------------------- */
+.second-half {
+    /* box-sizing: border-box; */
+}
+
+.card-body {
+    /* border: 1px solid black; */
+}
+
+.card-body h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    /* border: 1px solid blue; */
+    /* padding: 0; */
+    margin: 0;
+}
+
+.card-body p {
+    /* border: 1px solid blue; */
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.card-price-tag {
+    /* border: 1px solid red; */
+}
+
+.card-price-tag h3 {
+
+    font-size: 1rem;
+    font-weight: bold;
+    /* border: 1px solid red; */
+    margin: 0;
+    /* padding: 0; */
+}
+
+.card-price-tag-btn {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 0.9rem;
+    padding: 0 10px;
+    /* margin: 0; */
+    transition: 0.1s ease-out;
+}
+
+/* ------------------------ */
+
+@media (max-width: 460px) {
+    .image-container {
+        height: 200px;
+    }
+
+    .sub-images {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0 5px;
+        /* border: 1px solid black; */
+    }
+
+    .sub-images-list {
+        /* border: 1px solid red; */
+    }
+
+    .sub-images-tile {}
+
+
+    .card-body h3 {
+        font-size: 1rem;
+    }
+
+    .card-body p {
+        /* border: 1px solid blue; */
+        font-size: 0.8rem;
+        /* border: 1px solid blue; */
+        /* margin: 0 10px; */
+        /* font-family: 'Poppins', sans-serif; */
+        line-height: 1.5;
+    }
+
+    .card-price-tag h3 {
+        font-size: 0.8rem;
+        font-weight: bold;
+        /* border: 1px solid red; */
+        margin: 0;
+        /* padding: 0; */
+    }
+
+    .card-tag-btn{
+        font-size: 0.7rem;
+    }
 }

@@ -2,7 +2,7 @@
     <!-- <div align="right" class="mb-3">
         <button (click)="checkout()" color="primary" mat-raised-button>Checkout</button>
     </div> -->
-    <div >
+    <div class="responsive-table">
         <table mat-table [dataSource]="myOrderDetails" class="mat-elevation-z8">
 
             <!-- Name Column -->
@@ -11,7 +11,7 @@
                 <td mat-cell *matCellDef="let element"> {{element.orderFullName}} </td>
             </ng-container>
     
-            <ng-container matColumnDef="Address">
+            <ng-container matColumnDef="Address" class="address">
                 <th mat-header-cell *matHeaderCellDef> Address </th>
                 <td mat-cell *matCellDef="let element"> {{element.orderFullOrder}} </td>
             </ng-container>

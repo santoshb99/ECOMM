@@ -1,6 +1,8 @@
+
 mat-grid-tile{
     border: 1px solid #eee;
 }
+
 
 .btn-remove-image{
     position: absolute;
@@ -39,4 +41,40 @@ mat-grid-tile{
 .browse-button{
     color: blue;
     cursor: pointer;
+}
+
+
+@media (max-width: 640px){
+
+    *{
+        margin: 0;
+        /* padding: 0; */
+        box-sizing: border-box;
+    }
+    .card {
+        width: 100%;
+    }
+    .row{
+        display: inline-block;
+        /* width: 100%; */
+        /* border: 1px solid black; */
+    }
+
+    .first-row{
+        /* border: 1px solid yellow; */
+        width: 100vw;
+    }
+
+    .second-row{
+        margin-top: 5px ;
+        /* border: 1px solid yellow; */
+        width: 100vw;
+    }
+
+    .image-place{
+        display: flex;
+        justify-content: center;
+        /* border: 1px solid red; */
+        padding: 5px;
+    }
 }

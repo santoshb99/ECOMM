@@ -1,4 +1,4 @@
-<div class="container mt-3">
+<!-- <div class="container mt-3">
 
     <mat-form-field appearance="outline" class="w-100">
         <mat-label>Search</mat-label>
@@ -40,6 +40,85 @@
 
     </mat-grid-list>
 
+    <div class="text-center mt-5" *ngIf="showMoreButton">
+        <button type="button" mat-raised-button color="primary" (click)="loadMoreProduct()">Load more</button>
+    </div>
+</div> -->
+<!-- ------------------------------------------ -->
+
+<!-- <div class="container py-5">
+    <h1 class="text-center">Popular Dishes</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4 py-5">
+
+        <div class="col" *ngFor="let p of productDetails">
+            <div class="card">
+                <img [src]="p.productImages[0].url" class="card-img-top container-fluid" alt="...">
+                
+                <div class="card-body">
+                    <h3 class="card-title">{{p.productName}}</h3>
+                    <p class="card-text">{{p.productDescription}}</p>
+                </div>
+                <div class="mb-5 d-flex justify-content-around">
+                    <h3>Rs. {{p.productDiscountedPrice}} &nbsp; <span
+                            style="text-decoration: line-through; font-style: italic;">{{p.productActualPrice}}</span>
+                    </h3>
+
+                </div>
+                <div class="mb-5 d-flex justify-content-around">
+                    <button class="btn btn-primary ">Buy Now</button>
+                    <button class="btn btn-primary ">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script> -->
+
+<!-- ------------------------------------------------- -->
+
+<div class="container-fluid home-dashboard">
+    <div class="">
+        <mat-form-field appearance="outline" class="w-100 mt-2 searchbar">
+            <mat-label>Search</mat-label>
+            <input matInput #searchkeyword (keyup)="searchByKeyword(searchkeyword.value)" name="searchKey" id="searchKey"
+                placeholder="Search Any Product">
+            <mat-hint>Search Any Product"</mat-hint>
+        </mat-form-field>
+    </div>
+    <div>
+        <h1 class="text-center div-head">Our Products</h1>
+    </div>
+    <div class="container">
+        <!-- <div class="card-item card" > -->
+        <div class="card-item card" *ngFor="let p of productDetails">
+            <img [src]="p.productImages[0].url" class="card-img-top rounded container-fluid card-image" alt="...">
+    
+            <div class="second-half">
+                <div class="card-body">
+                    <h3 class="card-title">{{p.productName}}</h3>
+                    <p class="card-text text-wrap">{{p.productDescription}}</p>
+                </div>
+                <div class="d-flex justify-content-around card-price-tag">
+                    <h3> ₹ {{p.productDiscountedPrice}} &nbsp; <span
+                            style="text-decoration: line-through; font-style: italic;">{{p.productActualPrice}}</span>
+                    </h3>
+                    <button type="button" mat-raised-button color="primary" (click)="showProductDetails(p.productId)">View
+                        Details</button>
+        
+                </div>
+            </div>
+            
+            <!-- <div class="mb-3 d-flex justify-content-around"> -->
+            <!-- <button class="btn btn-primary mx-2">Buy Now</button> -->
+            <!-- <button type="button" class='btn btn-primary (click)="showProductDetails(p.productId)"'>View Details</button> -->
+            <!-- <button type="button" mat-raised-button color="primary"
+                                (click)="showProductDetails(p.productId)">View Details</button> -->
+            <!-- </div> -->
+        </div>
+        <!-- </div> -->
+    </div>
     <div class="text-center mt-5" *ngIf="showMoreButton">
         <button type="button" mat-raised-button color="primary" (click)="loadMoreProduct()">Load more</button>
     </div>

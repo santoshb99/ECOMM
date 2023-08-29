@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { UserAuthService } from '../_services/user-auth.service';
 import { UserService } from '../_services/user.service';
 
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -13,9 +14,10 @@ export class HeaderComponent implements OnInit {
     private userAuthService: UserAuthService,
     private router: Router,
     public userService: UserService
-  ) { }
+  ) {   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+  }
 
   public isLoggedIn() {
     return this.userAuthService.isLoggedIn();
@@ -33,4 +35,5 @@ export class HeaderComponent implements OnInit {
   public isUser(){
     return this.userAuthService.isUser();
   }
+  
 }

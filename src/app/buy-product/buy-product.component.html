@@ -1,22 +1,26 @@
 <div class="container">
+    <div *ngIf="showMsg" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Order Placed successfully!</strong> It will get delivered to you within 4-5 business days.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
     <div class="card mt-2">
         <div class="row mt-2">
-            <div class="col-6">
+            <div class="col-6 first-row">
                 <form #orderForm="ngForm" (ngSubmit)="createTransactionAndPlacedOrder(orderForm)">
 
                     <mat-form-field appearance="outline" class="w-100">
                         <mat-label>Full Name</mat-label>
-                        <input matInput placeholder="Full Name" [(ngModel)]="orderDetails.fullName" name="fullName">
+                        <input matInput placeholder="Full Name" [(ngModel)]="orderDetails.fullName" name="fullName" required>
                     </mat-form-field>
 
                     <mat-form-field appearance="outline" class="w-100">
                         <mat-label>Full Address</mat-label>
-                        <input matInput placeholder="Full Address" [(ngModel)]="orderDetails.fullAddress" name="fullAddress">
+                        <input matInput placeholder="Full Address" [(ngModel)]="orderDetails.fullAddress" name="fullAddress" required>
                     </mat-form-field>
 
                     <mat-form-field appearance="outline" class="w-100">
                         <mat-label>Contact Number</mat-label>
-                        <input matInput placeholder="Contact Number" [(ngModel)]="orderDetails.contactNumber" name="contactNumber">
+                        <input matInput placeholder="Contact Number" [(ngModel)]="orderDetails.contactNumber" name="contactNumber" required>
                     </mat-form-field>
 
                     <mat-form-field appearance="outline" class="w-100">
@@ -25,12 +29,12 @@
                     </mat-form-field>
 
                     <div align="right">
-                        <button type="submit" mat-stroked-button color="primary">Place Order</button>
+                        <button type="submit" class="place-btn" mat-stroked-button color="primary">Place Order</button>
                     </div>
                 </form>
             </div>
 
-            <div class="col-6">
+            <div class="col-6 second-row">
                 <table class="table">
                     <thead class="thead">
                         <tr>

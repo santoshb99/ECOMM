@@ -14,6 +14,8 @@ declare var Razorpay: any;
 })
 export class BuyProductComponent implements OnInit{
   
+  showMsg:boolean = false;
+
   isSingleProductCheckout: string = '';
   productDetails: Product[] = [];
 
@@ -54,7 +56,8 @@ export class BuyProductComponent implements OnInit{
         const ngZone = this.injector.get(NgZone);
         ngZone.run(
           () => {
-            this.router.navigate(["/orderConfirm"]);
+            // this.router.navigate(["/orderConfirm"]);
+            this.showMsg = true;
           }
         );
        

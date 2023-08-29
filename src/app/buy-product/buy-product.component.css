@@ -1,0 +1,40 @@
+
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.place-btn{
+    columns: #0b2239;
+    font-weight: bold;
+}
+
+
+@media (max-width: 640px){
+
+    *{
+        margin: 0;
+        /* padding: 0; */
+        box-sizing: border-box;
+    }
+    .card {
+        width: 100%;
+    }
+    .row{
+        display: inline-block;
+        /* width: 100%; */
+        /* border: 1px solid black; */
+    }
+
+    .first-row{
+        /* border: 1px solid yellow; */
+        width: 100vw;
+    }
+
+    .second-row{
+        margin-top: 5px ;
+        /* border: 1px solid yellow; */
+        width: 100vw;
+    }
+
+}
