@@ -160,7 +160,9 @@ header .header-right .hamburger div {
 
 .custNav {
     background: #0b2239;
-    font-weight: 700;    
+    font-weight: 700;   
+    /* position: fixed;  */
+    /* width: 100%; */
 }
 
 

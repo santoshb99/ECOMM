@@ -56,7 +56,7 @@ export class BuyProductComponent implements OnInit{
         const ngZone = this.injector.get(NgZone);
         ngZone.run(
           () => {
-            // this.router.navigate(["/orderConfirm"]);
+            this.router.navigate(["/orderConfirm"]);
             this.showMsg = true;
           }
         );

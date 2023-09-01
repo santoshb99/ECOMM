@@ -20,7 +20,7 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  
+
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: { roles: ['Admin'] } },
   { path: 'user', component: UserComponent, canActivate: [AuthGuard], data: { roles: ['User'] } },
   { path: 'login', component: LoginComponent },
@@ -56,8 +56,11 @@ const routes: Routes = [
 
   {
     path: 'register', component: RegisterComponent
-  }
-
+  },
+  // {
+  //   path: 'lazy',
+  //   loadChildren: () => import('./lazy-module/lazy-module.module').then(mod => mod.LazyModuleModule)
+  // }
 ];
 
 @NgModule({

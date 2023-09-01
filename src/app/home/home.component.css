@@ -71,7 +71,6 @@
 }
 
 .container{
-    /* border: 1px solid red; */
     display: grid;
     row-gap: 20px;
     column-gap: 10px;
@@ -310,3 +309,7 @@ overflow: hidden;
       }      
 
 }
+
+/* .card-price-tag {
+  z-index: 0;
+} */

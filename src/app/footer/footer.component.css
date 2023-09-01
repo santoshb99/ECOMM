@@ -111,4 +111,17 @@ ul{
 
 
 
+/*
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+  } */
 
+  .footer-container {
+	width: 100%; /* Ensures the container takes full width of its parent */
+  padding-right: 15px; /* Right padding to create a gutter */
+  padding-left: 15px; /* Left padding to create a gutter */
+  margin-right: auto; /* Centers the container by setting margin-right and margin-left to auto */
+  margin-left: auto; /* Centers the container by setting margin-right and margin-left to auto */
+  }
